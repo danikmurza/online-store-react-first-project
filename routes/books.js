@@ -11,31 +11,13 @@ router.get('/', async (req, res) => {
   }
 })
 router.post('/register', async (req, res)=>{
-  const books = new Books({
-    title: "Hello",
-    author: "Garri potter",
-    price: 15,
-    count: 70,
-    img: "link"
-  })
+  const books = new Books({})
   
   await books.save()
   
   res.status(201).json({ message: 'Книга Добавлена' })
 })
-// router.get('/:id/edit', async (req, res) => {
-//   if (!req.query.allow) {
-//     return res.redirect('/')
-//   }
-//
-//   const books = await Books.findById(req.params.id)
-//
-//   res.render('books-edit', {
-//     title: `Редактировать ${books.title}`,
-//     books
-//   })
-// })
-//
+
 router.post('/edit', async (req, res) => {
   const {id} = req.body
   delete req.body.id
