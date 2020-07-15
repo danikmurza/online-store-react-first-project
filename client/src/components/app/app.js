@@ -6,6 +6,7 @@ import NavBar from '../NavBar/nav-bar'
 import RegistrationPage from "../user/registration-page";
 import './app.css';
 import {AboutPage} from "../about/about";
+import LoginPage from "../user/login-page";
 
 const App = () => {
   return (
@@ -24,6 +25,10 @@ const App = () => {
         <Route
           path="/registrationPage"
           component={RegistrationPage}
+        />
+        <Route
+          path="/login"
+          component={LoginPage}
         />
         <Route
           path="/ProductView"

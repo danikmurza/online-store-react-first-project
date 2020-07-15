@@ -9,7 +9,7 @@ import {withBookstoreService} from "../hoc";
 import ErrorBoundry from "../error-boundry";
 import './user.css'
 
-class RegistrationPage extends React.Component {
+class LoginPage extends React.Component {
   
   state = {
     email: '',
@@ -50,7 +50,7 @@ class RegistrationPage extends React.Component {
             <img className="mb-4"
                  src="" alt=""
                  width="72" height="72"/>
-            <h1 className="h3 mb-3 font-weight-normal">Registration form</h1>
+            <h1 className="h3 mb-3 font-weight-normal">Login</h1>
           
           </div>
           
@@ -67,11 +67,6 @@ class RegistrationPage extends React.Component {
                    placeholder="Password" required=""
                    onChange={this.onChangePassword}
             />
-            <label htmlFor="inputPassword">Password</label>
-          </div>
-          <div className="form-label-group">
-            <input type="password2" id="inputPassword2" className="form-control"
-                   placeholder="Password2" required=""/>
             <label htmlFor="inputPassword">Password</label>
           </div>
           
@@ -108,4 +103,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 }, dispatch)
 
 
-export default compose(withBookstoreService(), connect(mapStateToProps, mapDispatchToProps))(RegistrationPage);
+export default compose(withBookstoreService(), connect(mapStateToProps, mapDispatchToProps))(LoginPage);

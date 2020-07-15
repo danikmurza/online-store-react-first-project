@@ -72,7 +72,7 @@ class RegistrationPage extends React.Component {
           </div>
           <div className="form-label-group">
             <input type="password2" id="inputPassword2" className="form-control"
-                   placeholder="Password2" required=""/>
+                   placeholder="Password" required=""/>
             <label htmlFor="inputPassword">Password</label>
           </div>
           
