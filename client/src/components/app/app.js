@@ -1,6 +1,5 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
-//import ShopHeader from '../shop-header';
 import {HomePage, CartPage} from '../pages';
 import ProductView from "../news/news-page";
 import NavBar from '../NavBar/nav-bar'
@@ -13,8 +12,6 @@ const App = () => {
     <main role="main" className="container">
       
       <NavBar/>
-      
-      {/*<ShopHeader numItems={5} total={210}/>*/}
       <Switch>
         <Route
           path="/"

@@ -10,7 +10,7 @@ import ErrorBoundry from "../error-boundry";
 import './user.css'
 
 class RegistrationPage extends React.Component {
- 
+  
   state = {
     email: '',
     password: ''
@@ -18,27 +18,26 @@ class RegistrationPage extends React.Component {
   
   add = (e) => {
     e.preventDefault()
-    axios.post('http://localhost:5000/api/auth/register', this.state)
+    axios.post('http://localhost:5000/api/auth/login', this.state)
       .then((res) => {
         console.log(res)
       })
       .catch((err) => console.log(err))
   }
   
-  onChangeEmail=(e)=> {
+  onChangeEmail = (e) => {
     e.preventDefault()
     this.setState({
       email: e.target.value
     });
   }
   
-  onChangePassword=(event)=> {
+  onChangePassword = (event) => {
     event.preventDefault()
     this.setState({
       password: event.target.value
     });
   }
- 
   
   
   render() {
@@ -52,7 +51,7 @@ class RegistrationPage extends React.Component {
                  src="" alt=""
                  width="72" height="72"/>
             <h1 className="h3 mb-3 font-weight-normal">Registration form</h1>
-            
+          
           </div>
           
           <div className="form-label-group">

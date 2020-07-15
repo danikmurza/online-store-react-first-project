@@ -4,7 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "client": "npm run start --prefix client/scripts/start.js",
     "server": "node index.js",
     "nodemon": "nodemon index.js",
     "dev": "cross-env NODE_ENV=development concurrently \"npm run server\" \"npm run client\""

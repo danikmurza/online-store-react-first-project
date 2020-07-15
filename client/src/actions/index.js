@@ -83,7 +83,7 @@ export function fetchUserError(error) {
 export function fetchBooks() {
   return async dispatch => {
     dispatch(booksRequested());
-   await  fetch('/books')
+    await fetch('/api/books')
       .then(res => res.json())
       .then(res => {
         if (res.error) {
@@ -123,7 +123,7 @@ export function fetchNews() {
 export function fetchUser() {
   return async dispatch => {
     dispatch(fetchUserPending());
-    await fetch('/auth/array')
+    await fetch('/api/auth/array')
       .then(res => res.json())
       .then(res => {
         if (res.error) {
