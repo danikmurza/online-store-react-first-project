@@ -15,7 +15,7 @@ router.post('/register', async (req, res)=>{
   
   await books.save()
   
-  res.status(201).json({ message: 'Книга Добавлена' })
+  res.status(201).json({message: 'Book Added'})
 })
 
 router.post('/edit', async (req, res) => {
