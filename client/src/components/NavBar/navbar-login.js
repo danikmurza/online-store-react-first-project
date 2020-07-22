@@ -1,7 +1,10 @@
 import React from 'react'
 import {Link} from "react-router-dom"
+import {userAction} from '../../actions'
 
-export class NavBar extends React.Component {
+
+export class NavBarLogin extends React.Component {
+  
   render() {
     return (
       <nav className="navbar navbar-expand-xl navbar-light bg-light"
@@ -19,11 +22,20 @@ export class NavBar extends React.Component {
               <Link className="nav-link" to="/">News</Link>
             </li>
             <li className="nav-item">
+              <Link className="nav-link" to="/products">Books</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/users">Users</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/cart">Cart Page</Link>
+            </li>
+            <li className="nav-item">
               <Link className="nav-link" to="/about">About</Link>
             </li>
             
-            <form className="form-inline my-2 my-lg-0"
-                  style={{paddingLeft: "600px"}}
+            <form className="forn form-inline my-2 my-lg-0"
+                  style={{paddingLeft: "350px"}}
             >
               <input className="form-control mr-sm-2" type="text"
                      placeholder="Search"/>
@@ -36,9 +48,10 @@ export class NavBar extends React.Component {
             <li className="nav-item">
               <Link className="nav-link"
                     style={{marginLeft: "10px"}}
-                    to="/login"
+                    to="/"
+                    onClick={() => userAction.logout()}
               >
-                Login
+                Logout
               </Link>
             </li>
           </ul>

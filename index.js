@@ -12,7 +12,7 @@ app.use(express.json({ extended: true }))
 app.use(express.static(path.join(__dirname, 'client')))
 app.use(express.urlencoded({extended: true}))
 
-app.use('/', require('./routes/home'))
+app.use('/home', require('./routes/home'))
 app.use('/api/books', require('./routes/books'))
 app.use('/api/auth', require('./routes/auth'))
 

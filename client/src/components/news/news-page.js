@@ -1,22 +1,23 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { fetchNews } from '../../actions/index';
-import LoadingSpinner from '../spinner';
-import { compose } from "../../utils";
-import { withBookstoreService } from "../hoc";
-import ErrorBoundry from "../error-boundry";
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import {bindActionCreators} from 'redux'
+import {fetchNews} from '../../actions/index'
+import LoadingSpinner from '../spinner'
+import {compose} from "../../utils"
+import {withBookstoreService} from "../hoc"
+import ErrorBoundry from "../error-boundry"
 
-class ProductView extends Component {
+class NewsPage extends Component {
   
   componentDidMount() {
-    this.props.fetchProducts();
+    this.props.fetchProducts()
+    
   }
   
   render() {
     
-    const {pending, error, products } = this.props;
-
+    const {pending, error, products} = this.props
+    
     if (pending) {
       return (
         <LoadingSpinner/>
@@ -29,7 +30,7 @@ class ProductView extends Component {
     } else {
       return (
         <div className='product-list-wrapper'>
-          <News products={ products }/>
+          <News products={products}/>
         </div>
       )
     }
@@ -38,43 +39,52 @@ class ProductView extends Component {
 
 const News = ({products}) => {
   const news = products.map((news, index) =>
-    <li key={index}>
-      
-      
-      <div className="jumbotron">
-        
-        <img src={news.urlToImage}
-             alt={news.urlToImage}
-        />
-        <h3 className="display-8">{news.title}</h3>
-        <h3 className="display-8">{news.author}</h3>
-        <p className="lead">
-          {news.description}
-        </p>
-        <p className="lead">
-          {news.content}
-        </p>
-        <hr className="my-4"/>
-        
-        <p className="lead">
-          <a className="btn btn-primary btn-lg" href={news.url} role="button">Learn
-            more</a>
-        </p>
-        <p>{news.publishedAt.slice(0, 10)}</p>
-      </div>
+    <li key={index}
+        style={{listStyle: "none", paddingLeft: "0px", marginLeft: "0px"}}>
     
+      <div className="jumbotron pb-1">
+        <div className="media">
+        
+          <img className="rounded mr-3 w-25"
+               src={news.urlToImage}
+               alt="card"
+            // style="width: 18rem;"
+          />
+          <div className="media-body">
+            <h5 className="display-8">{news.title}</h5>
+            <p className="display-8">{news.author}</p>
+            <p>
+              {news.description}
+            </p>
+            <p>
+              {news.content}
+            </p>
+            <a className="btn btn-secondary btn-sm"
+               href={news.url}
+               role="button"
+            >
+              Learn more
+            </a>
+            <p className="pt-2">Date: {news.publishedAt.slice(0, 10)}</p>
+          </div>
+        </div>
+      </div>
+  
     </li>
-  );
+  )
+  
   return (
     
-    <ul>{news}</ul>
+    <ul className='m-0 p-0'>
+      {news}
+    </ul>
   
   )
 }
 
 
 const mapStateToProps = ({newsList: {products, pending, error}}) => {
-  return {products, pending, error};
+  return {products, pending, error}
 };
 
 
@@ -89,4 +99,4 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 export default compose(
   withBookstoreService(),
   connect(mapStateToProps, mapDispatchToProps)
-)(ProductView);
+)(NewsPage)

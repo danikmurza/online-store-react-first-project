@@ -1,4 +1,3 @@
-
 export default function newsList(state, action) {
   
   if (state === undefined) {
@@ -29,7 +28,7 @@ export default function newsList(state, action) {
           error: action.error
       }
     default:
-      return state.newsList;
+      return state.newsList
   }
 }
 

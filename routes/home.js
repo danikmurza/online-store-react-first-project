@@ -6,7 +6,9 @@ const router = Router()
 router.get('/', async (req, res) => {
   try {
     const books = await Books.find()
-    await res.send(books)
+    const user = await User.find()
+    await res.send({books, user})
+  
   } catch (e) {
     console.log(e)
   }

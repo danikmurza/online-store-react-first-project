@@ -8,10 +8,10 @@ const router = Router()
 
 
 router.get('/array',
-  [
-    check('email', 'Please enter a valid email').normalizeEmail().isEmail(),
-    check('password', 'enter password').exists()
-  ],
+  // [
+  //   check('email', 'Please enter a valid email').normalizeEmail().isEmail(),
+  //   check('password', 'enter password').exists()
+  // ],
   async (req, res) => {
     try {
       const user = await User.find()

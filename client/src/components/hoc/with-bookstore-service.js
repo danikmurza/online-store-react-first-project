@@ -1,20 +1,20 @@
-import React from 'react';
-import { BookstoreServiceConsumer } from '../bookstore-service-context';
+import React from 'react'
+import {AuthContext} from '../../context/auth-context'
 
 const withBookstoreService = () => (Wrapped) => {
-
+  
   return (props) => {
     return (
-      <BookstoreServiceConsumer>
+      <AuthContext.Consumer>
         {
-          (bookstoreService) => {
+          (useAuth) => {
             return (<Wrapped {...props}
-                     bookstoreService={bookstoreService}/>);
+                             useAuth={useAuth}/>)
           }
         }
-      </BookstoreServiceConsumer>
+      </AuthContext.Consumer>
     );
   }
 };
 
-export default withBookstoreService;
+export default withBookstoreService
